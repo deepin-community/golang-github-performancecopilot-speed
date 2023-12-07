@@ -1,5 +1,26 @@
-template-repository (1.0-1) unstable; urgency=medium
+golang-github-performancecopilot-speed (4.0.0-4) unstable; urgency=medium
 
-  * Initial release
+  * Disable running tests on s390x systems
+  * Update Standards-Version to 4.6.2 in d/control (no changes needed)
+  * Update years in d/copyright
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Mathias Gibbens <gibmat@debian.org>  Thu, 13 Jul 2023 21:22:05 +0000
+
+golang-github-performancecopilot-speed (4.0.0-3) unstable; urgency=medium
+
+  * Adjust d/rules so mmvdump binary isn't installed, but its source code is
+    (fix autopkgtest failure)
+
+ -- Mathias Gibbens <gibmat@debian.org>  Fri, 25 Nov 2022 20:13:54 +0000
+
+golang-github-performancecopilot-speed (4.0.0-2) unstable; urgency=medium
+
+  * Source-only upload for migration
+
+ -- Mathias Gibbens <gibmat@debian.org>  Wed, 23 Nov 2022 22:21:39 +0000
+
+golang-github-performancecopilot-speed (4.0.0-1) unstable; urgency=medium
+
+  * Initial release (Closes: #1024585)
+
+ -- Mathias Gibbens <gibmat@debian.org>  Tue, 22 Nov 2022 00:39:46 +0000
