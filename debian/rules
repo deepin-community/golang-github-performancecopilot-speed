@@ -1,4 +1,16 @@
 #!/usr/bin/make -f
 
+# Don't build the examples or mmvdump binary
+export DH_GOLANG_EXCLUDES := examples/ mmvdump/cmd/mmvdump
+
 %:
-	dh $@
+	dh $@ --builddirectory=_build --buildsystem=golang --with=golang
+
+# The tests expect test data to match the endianness of the system where the
+# tests are run. This breaks tests on s390x (big endian), so for now don't run
+# the tests on that architecture. (Reported upstream as
+# https://github.com/performancecopilot/speed/issues/64)
+override_dh_auto_test:
+ifneq ($(DEB_HOST_ARCH),s390x)
+	dh_auto_test
+endif

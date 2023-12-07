@@ -1,15 +1,35 @@
-Source: template-repository
-Section: unknown
+Source: golang-github-performancecopilot-speed
+Maintainer: Debian Go Packaging Team <team+pkg-go@tracker.debian.org>
+Uploaders: Mathias Gibbens <gibmat@debian.org>
+Section: golang
+Testsuite: autopkgtest-pkg-go
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Build-Depends: debhelper-compat (= 13),
+               dh-golang,
+               golang-any,
+               golang-github-edsrzf-mmap-go-dev,
+               golang-github-hdrhistogram-hdrhistogram-go-dev,
+               golang-github-pkg-errors-dev
+Standards-Version: 4.6.2
+Vcs-Browser: https://salsa.debian.org/go-team/packages/golang-github-performancecopilot-speed
+Vcs-Git: https://salsa.debian.org/go-team/packages/golang-github-performancecopilot-speed.git
+Homepage: https://github.com/performancecopilot/speed
+Rules-Requires-Root: no
+XS-Go-Import-Path: github.com/performancecopilot/speed
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: golang-github-performancecopilot-speed-dev
+Architecture: all
+Multi-Arch: foreign
+Depends: golang-github-edsrzf-mmap-go-dev,
+         golang-github-hdrhistogram-hdrhistogram-go-dev,
+         golang-github-pkg-errors-dev,
+         ${misc:Depends}
+Description: Implementation of the PCP instrumentation API (library)
+ Golang implementation of the Performance Co-Pilot (PCP)
+ instrumentation API.
+ .
+ There are 3 main components defined in the library, a Client, a
+ Registry and a Metric. A client is created using an application name,
+ and the same name is used to create a memory mapped file in
+ PCP_TMP_DIR. Each client contains a registry of metrics that it
+ holds, and will publish on being activated.
